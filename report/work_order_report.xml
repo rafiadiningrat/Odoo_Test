@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_work_order">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <h2>Work Order</h2>
+                <table class="table">
+                    <tr>
+                        <td>WO Number:</td>
+                        <td><t t-esc="doc.name"/></td>
+                    </tr>
+                    <tr>
+                        <td>Team Name:</td>
+                        <td><t t-esc="doc.service_team_id.name"/></td>
+                    </tr>
+                    <tr>
+                        <td>Customer:</td>
+                        <td><t t-esc="doc.booking_order_ref_id.partner_id.name"/></td>
+                    </tr>
+                    <tr>
+                        <td>Booking Order Ref:</td>
+                        <td><t t-esc="doc.booking_order_ref_id.name"/></td>
+                    </tr>
+                    <tr>
+                        <td>Date:</td>
+                        <td><t t-esc="doc.date_start"/> - <t t-esc="doc.date_end"/></td>
+                    </tr>
+                </table>
+                <p>NOTES:</p>
+                <p><t t-esc="doc.notes"/></p>
+                <p>Signature:</p>
+            </div>
+        </t>
+    </template>
+</odoo>

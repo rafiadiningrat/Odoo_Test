@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+    <odoo>
+        <record id="view_work_order_form" model="ir.ui.view">
+            <field name="name">work.order.form</field>
+            <field name="model">work.order</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_start_work" type="object" string="Start Work" states="pending"/>
+                        <button name="action_end_work" type="object" string="End Work" states="in_progress"/>
+                        <button name="action_reset" type="object" string="Reset" states="in_progress"/>
+                        <button name="action_cancel" type="object" string="Cancel" class="btn-danger"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="booking_order_ref_id"/>
+                            <field name="service_team_id"/>
+                            <field name="team_leader_id"/>
+                            <field name="team_member_ids" widget="many2many_tags"/>
+                            <field name="planned_start"/>
+                            <field name="planned_end"/>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                            <field name="state"/>
+                            <field name="notes"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </odoo>
